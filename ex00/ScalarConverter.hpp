@@ -5,7 +5,7 @@
 #include <string_view>
 #include <limits>
 #include <cmath>
-#include <cctype>
+#include <iomanip>
 
 class ScalarConverter {
 public:
@@ -13,7 +13,7 @@ public:
 
 private:
     ScalarConverter();
-    ScalarConverter(std::string_view);
+    ScalarConverter(std::string_view literal);
     ScalarConverter(const ScalarConverter &other);
     ScalarConverter &operator=(const ScalarConverter &other);
     ~ScalarConverter();
