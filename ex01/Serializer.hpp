@@ -7,24 +7,19 @@
 
 struct Data {
     int id;
-    std::string name;
-    bool active;
 };
 
 class Serializer {
-public:
+private:
     Serializer();
-    Serializer(std::string_view filename);
+    Serializer(std::string_view name);
     Serializer(const Serializer &other);
     Serializer &operator=(const Serializer &other);
     ~Serializer();
 
-    uintptr_t serialize(Data* ptr);
-    Data* deserialize(uintptr_t raw);
-
-private:
-    void writeHeader();
-    void writeFooter();
+public:
+    static uintptr_t serialize(Data* ptr);
+    static Data* deserialize(uintptr_t raw);
 };
 
 #endif

@@ -1,6 +1,6 @@
-NAME = 
+NAME = identity
 
-SRCS = main.cpp 
+SRCS = main.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 CXX = 	c++
