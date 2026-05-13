@@ -2,12 +2,16 @@
 
 ScalarConverter::ScalarConverter() {}
 
-ScalarConverter::ScalarConverter(std::string_view literal) {}
+ScalarConverter::ScalarConverter(std::string_view literal) {
+    (void)literal;
+}
 
-ScalarConverter::ScalarConverter(const ScalarConverter &other) {}
+ScalarConverter::ScalarConverter(const ScalarConverter &other) {
+    (void)other;
+}
 
 ScalarConverter &ScalarConverter::operator=(const ScalarConverter &other) {
-    void(other);
+    (void)other;
     return *this;
 }
 
@@ -15,7 +19,7 @@ ScalarConverter::~ScalarConverter() {}
 
 void ScalarConverter::convert(std::string_view literal) {
     std::string str(literal);
-    double d;
+    // double d;
 
     if (str == "nan" || str == "nanf" || str == "+inf" || str == "+inff" || str == "-inf" || str == "-inff") {
         std::cout << "char: impossible" << std::endl;

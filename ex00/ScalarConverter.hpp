@@ -9,13 +9,14 @@
 
 class ScalarConverter {
 public:
-    ScalarConverter() = delete;
-    ScalarConverter(std::string_view str) = delete;
-    ScalarConverter(const ScalarConverter &other) = delete;
-    ScalarConverter &operator=(const ScalarConverter &other) = delete;
-    ~ScalarConverter() = delete;
-
     static void convert(std::string_view literal);
+
+private:
+    ScalarConverter();
+    ScalarConverter(std::string_view);
+    ScalarConverter(const ScalarConverter &other);
+    ScalarConverter &operator=(const ScalarConverter &other);
+    ~ScalarConverter();
 };
 
 #endif
