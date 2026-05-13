@@ -27,11 +27,6 @@ void ScalarConverter::convert(std::string_view literal) {
         if (str.find("nan") != std::string::npos){
             std::cout << "float: nanf" << std::endl;
             std::cout << "double: nan" << std::endl;
-    }else
-        {
-            std::cout << "float: " << str.substr(0, str.size() - 1) << "f" << std::endl;
-            std::cout << "double: " << str.substr(0, str.size() - 1) << std::endl;
         }
-        return;
 }
 }
