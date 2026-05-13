@@ -1,18 +1,21 @@
 #ifndef SCALARCONVERTER_HPP
 # define SCALARCONVERTER_HPP
 #include <iostream>
+#include <string>
 #include <string_view>
+#include <limits>
+#include <cmath>
+#include <cctype>
 
 class ScalarConverter {
 public:
-    static void convert(std::string_view str);
+    ScalarConverter() = delete;
+    ScalarConverter(std::string_view str) = delete;
+    ScalarConverter(const ScalarConverter &other) = delete;
+    ScalarConverter &operator=(const ScalarConverter &other) = delete;
+    ~ScalarConverter() = delete;
 
-private:
-ScalarConverter();
-ScalarConverter(std::string_view str);
-ScalarConverter(const ScalarConverter &other);
-ScalarConverter &operator=(const ScalarConverter &other);
-~ScalarConverter();
+    static void convert(std::string_view literal);
 };
 
 #endif
