@@ -10,16 +10,16 @@ struct Data {
 };
 
 class Serializer {
+public:
+    static uintptr_t serializer(Data* ptr);
+    static Data* deserializer(uintptr_t raw);
+
 private:
     Serializer();
     Serializer(std::string_view name);
     Serializer(const Serializer &other);
     Serializer &operator=(const Serializer &other);
     ~Serializer();
-
-public:
-    static uintptr_t serializer(Data* ptr);
-    static Data* deserializer(uintptr_t raw);
 };
 
 #endif
