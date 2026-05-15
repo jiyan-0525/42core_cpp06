@@ -18,7 +18,7 @@ Base* generate() {
             return nullptr;
     }
 }
-
+// return nullptr if something went wrong, nothing to catch.
 void identify(Base* p) {
     if (dynamic_cast<A*> (p)) 
         std::cout << "A" << std::endl;
@@ -30,9 +30,8 @@ void identify(Base* p) {
 
 void identify(Base& p) {
     try {
-        A& a = dynamic_cast<A&> (p);
-        std::cout << "A" << std::endl;
-        (void)a;
+        A& a = dynamic_cast<A&> (p); // Just test the cast,dont's store the result
+        (void)a; // Tell compiler: "I know 'a' is unused, this is intentional"
         return;
     } catch (const std::exception& e) {
     }
@@ -52,7 +51,7 @@ void identify(Base& p) {
 
 int main() {
     std::srand(std::time(0));
-    
+    // Use current time as seed for random generator
     for (int i = 0; i < 4; i++) {
         Base* obj = generate();
         

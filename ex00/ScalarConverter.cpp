@@ -37,6 +37,7 @@ void ScalarConverter::convert(std::string_view literal) {
                 throw std::invalid_argument("Invalid literal");
             }
         } catch (const std::invalid_argument& e) {
+            // std::cout << "Error: " << e.what() << std::endl;
             std::cout << "char: impossible" << std::endl;
             std::cout << "int: impossible" << std::endl;
             std::cout << "float: impossible" << std::endl;
