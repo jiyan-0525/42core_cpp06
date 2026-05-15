@@ -18,8 +18,8 @@ private:
     ~Serializer();
 
 public:
-    static uintptr_t serialize(Data* ptr);
-    static Data* deserialize(uintptr_t raw);
+    static uintptr_t serializer(Data* ptr);
+    static Data* deserializer(uintptr_t raw);
 };
 
 #endif

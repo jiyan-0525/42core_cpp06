@@ -34,7 +34,8 @@ void identify(Base& p) {
         std::cout << "A" << std::endl;
         (void)a;
         return;
-    } catch (const std::exception& e) {}
+    } catch (const std::exception& e) {
+    }
     try {
         B& b = dynamic_cast<B&> (p);
         std::cout << "B" << std::endl;
@@ -52,7 +53,7 @@ void identify(Base& p) {
 int main() {
     std::srand(std::time(0));
     
-    for (int i = 0; i < 5; i++) {
+    for (int i = 0; i < 4; i++) {
         Base* obj = generate();
         
         std::cout << "Identify via pointer: ";
