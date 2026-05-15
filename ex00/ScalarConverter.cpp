@@ -19,7 +19,6 @@ ScalarConverter::~ScalarConverter() {}
 
 void ScalarConverter::convert(std::string_view literal) {
     double d;
-    char* end;
 
     if (literal == "nan" || literal == "nanf") {
         std::cout << "char: impossible" << std::endl;
@@ -31,8 +30,13 @@ void ScalarConverter::convert(std::string_view literal) {
     if (literal.length() == 1 && !std::isdigit(literal[0])) {
         d = static_cast<double>(literal[0]);
     } else {
-        d = std::strtod(std::string(literal).c_str(), &end);
-        if (*end != '\0' && std::string(end) != "f" && !std::isnan(d) && !std::isinf(d)) {
+        try{
+            size_t idx;
+            d = std::stod(std::string(literal), &idx);
+            if (idx != literal.length() && !(idx == literal.length() - 1 && literal.back() == 'f')) {
+                throw std::invalid_argument("Invalid literal");
+            }
+        } catch (const std::invalid_argument& e) {
             std::cout << "char: impossible" << std::endl;
             std::cout << "int: impossible" << std::endl;
             std::cout << "float: impossible" << std::endl;
