@@ -31,9 +31,11 @@ void identify(Base* p) {
 void identify(Base& p) {
     try {
         A& a = dynamic_cast<A&> (p); // Just test the cast,dont's store the result
+        std::cout << "A" << std::endl;
         (void)a; // Tell compiler: "I know 'a' is unused, this is intentional"
         return;
     } catch (const std::exception& e) {
+        //std::cout << "Exception caught: " << e.what() << std::endl;
     }
     try {
         B& b = dynamic_cast<B&> (p);
