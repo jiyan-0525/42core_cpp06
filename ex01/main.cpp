@@ -5,8 +5,8 @@ int main() {
     data.id = 42;
     Data* ptr = &data;
 
-    uintptr_t raw = Serializer::serializer(ptr);
-    Data* deserializedData = Serializer::deserializer(raw);
+    uintptr_t raw = Serializer::serialize(ptr);
+    Data* deserializedData = Serializer::deserialize(raw);
     std::cout << "Original value: " << data.id << std::endl;
     std::cout << "Serialized integer value: " << raw << std::endl;
     std::cout << "Deserialized pointer value: " << deserializedData << std::endl;
